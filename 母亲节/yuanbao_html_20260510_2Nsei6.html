@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>母亲节快乐</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 背景音乐：萱草花 -->
+    <audio id="bgm" loop autoplay>
+        <source src="https://music.163.com/song/media/outer/url?id=1824045033.mp3" type="audio/mpeg">
+    </audio>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(#fffafc, #fff5f8);
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            color: #444;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 620px;
+            margin: 60px auto 30px;
+            padding: 40px 30px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(231,84,128,0.08);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 2;
+            margin: 18px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1.2s ease forwards;
+        }
+
+        p:nth-child(1) { animation-delay: 0.2s; }
+        p:nth-child(2) { animation-delay: 0.6s; }
+        p:nth-child(3) { animation-delay: 1.0s; }
+        p:nth-child(4) { animation-delay: 1.4s; }
+        p:nth-child(5) { animation-delay: 1.8s; }
+        p:nth-child(6) { animation-delay: 2.2s; }
+        p:nth-child(7) { animation-delay: 2.6s; }
+
+        .highlight {
+            color: #e75480;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .signature {
+            margin-top: 40px;
+            text-align: right;
+            font-style: italic;
+            color: #888;
+            font-size: 16px;
+            animation: fadeUp 1.2s ease forwards;
+            animation-delay: 3.0s;
+            opacity: 0;
+        }
+
+        .footer-flowers {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 22px;
+            color: #eac4d5;
+            letter-spacing: 6px;
+            animation: fadeUp 1.2s ease forwards;
+            animation-delay: 3.3s;
+            opacity: 0;
+        }
+
+        /* ===== 横向滚动照片区 ===== */
+        .photo-section {
+            max-width: 620px;
+            margin: 0 auto 60px;
+            overflow: hidden;
+        }
+
+        .photo-scroll {
+            display: flex;
+            gap: 16px;
+            animation: scrollLeft 30s linear infinite;
+        }
+
+        .photo-scroll img {
+            height: 220px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 手机友好 */
+        @media (max-width: 640px) {
+            .photo-scroll img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <p>
+        我一直觉得，<span class="highlight">“妈妈”</span>是世界上最好的词汇。
+    </p>
+
+    <p>
+        生命在五月发芽，春天孕育繁花，而<span class="highlight">母爱，比春天伟大</span>。
+    </p>
+
+    <p>
+        小时候常常挂在嘴边的“妈妈”，长大后才理解其中的艰辛。
+    </p>
+
+    <p>
+        是书本里对十月怀胎的讲解，也是每次出门前的那句小心，织成了一朵名为“母亲”的花。
+    </p>
+
+    <p>
+        那一定是世界上最温暖、最灿烂的花朵。
+    </p>
+
+    <p>
+        宇宙洪荒，生命浩瀚，只有您真正与我<span class="highlight">分享过心跳</span>。
+    </p>
+
+    <p>
+        祝我漂亮的妈妈，心常乐，福无边，永远明媚，<span class="highlight">永远鲜活</span>！
+    </p>
+
+    <div class="signature">
+        —— 永远爱你的悦悦
+    </div>
+
+    <div class="footer-flowers">
+        ❀ ❀ ❀ ❀ ❀
+    </div>
+</div>
+
+<!-- 📸 横向滚动照片区 -->
+<div class="photo-section">
+    <div class="photo-scroll">
+        <!-- 第1组（必须重复，才能无缝滚动） -->
+        <img src="photo1.jpg" alt="妈妈照片1">
+        <img src="photo2.jpg" alt="妈妈照片2">
+        <img src="photo3.jpg" alt="妈妈照片3">
+        <img src="photo4.jpg" alt="妈妈照片4">
+
+        <!-- 第2组（和上面一模一样，用于无缝循环） -->
+        <img src="photo1.jpg" alt="妈妈照片1">
+        <img src="photo2.jpg" alt="妈妈照片2">
+        <img src="photo3.jpg" alt="妈妈照片3">
+        <img src="photo4.jpg" alt="妈妈照片4">
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        const audio = document.getElementById('bgm');
+        audio.play().catch(() => {
+            document.body.addEventListener('click', () => audio.play(), { once: true });
+        });
+    });
+</script>
+
+</body>
+</html>
